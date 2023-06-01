@@ -4,7 +4,7 @@
 
 A projektunk egy vonalkövet autó, ami egy vonalpálya  által definiált útvonalon közlekedik az általunk megadott helyre.
 Ezt webes felületen keresztül lehet majd irányítani. 
-A mikrokontrollerpedig egy NodeMCU és egy Arduino Uno.  
+A mikrokontroller pedig egy NodeMCU és egy Arduino Uno.  
 
 ## 2. Alkatrész lista: 
 1. Arduino Uno controller - 1db
