@@ -4,5 +4,4 @@ Az Eszterházy Károly Katolikus Egyetem Robotika órára a beadandó projekhez 
 
 ## Csapattagok:
 - Molnár Péter 
-- Iván Ákos 
-- Riczkó Henrik
+- Iván Ákos
