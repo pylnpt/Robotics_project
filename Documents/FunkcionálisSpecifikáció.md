@@ -3,12 +3,12 @@
 ## 1. Vágyálomrendszer leírása
 
 A projektunk egy vonalkövet autó, ami egy vonalpálya  által definiált útvonalon közlekedik az általunk megadott helyre.
-Ezt webes felületen keresztül lehet majd irányítani. 
+Ezt webes felületen keresztül lehet majd be és kikapcsolni. 
 A mikrokontroller pedig egy NodeMCU és egy Arduino Uno.  
 
 ## 2. Alkatrész lista: 
 1. Arduino Uno controller - 1db
-2. NodeMCU-ESP-32S dual core WIFI modul - 4db
+2. NodeMCU-ESP-32S dual core WIFI modul - 1db
 3. DC Motor 3V-6V, 1 tengelyes - 2 db
 4. DC motor driver l293d - 1 db
 5. OBS-IR, Infravörös akadály érzékelő modul - 2db
@@ -16,15 +16,17 @@ A mikrokontroller pedig egy NodeMCU és egy Arduino Uno.
 7. RGB LED -2 db
 8. Piezzo - 1 db
 9. Jumper Kábelek (FF, MM)
-10. Ellenállás 220(ohm) - 2db
+10. Ellenállás 220(ohm) - 6db
 11. Lego (Váz, kerék)
 12. 2 db kerék (DC motorhoz)
 
 ## 3. Használati esetek (működés)
 
 * Webfelületen:
-  * Terveink szerint a térképre kattintva (a pálya keretein belül ) tudjuk majd irányítani hogy hova is menjen a kis autónk és mit csináljon ott pontosan.
+  * Terveink szerint itt lehet majd be és kikapcsolni  kis autónk.
   
+* Szenzorok alapján:
+  * A vonalpályát követve, infravörös szenzorok segítségével fog tájékozódni a kis autó.
   
 ## 4. Képernyőtervek (sematikus rajz és CAD tervrajz)
 
@@ -40,7 +42,40 @@ A mikrokontroller pedig egy NodeMCU és egy Arduino Uno.
 ### 5.1: jelölések
 
 #### 5.1.1 Állapotok jelölése:
+- A motor iránya alapján:
+  - JN: jobb motor áll
+  - BN: bal motor áll
+  - MN: mindkettő motor áll
+  - JF: jobb motor előre megy
+  - BF: bal motor előre megy
+  - MF: mindkettő motor előre megy
+
+- Az infravörös szenzor alapján:
+  - B: bal feketét érzékel
+  - J: jobb feketét érzékel
+  - M: mindkettő feketét érzékel
+  - BFE: bal fehéret érzékel
+  - JFE: jobb fehéret érzékel
+  - MFE: mindkettő fehéret érzékel
+
+- A LED állapota alapján:
+  - BLK: bal led kék
+  - JLK: Jobb led kék
+  - MLK : mindkettő led kék
+  - BLP: bal led piros
+  - JLP: Jobb led piros
+  - MLP : mindkettő led piros
+  - BX: bal led nem ég
+  - JX: jobb led nem ég
+  - MX: eggyik led sem ég
+
+- Weblap gombjai alapján:
+  - 0: kikapcsolt állapot
+  - 1: bekapcsolt állapot
     
- ### 5.2 Állapotátmenet gráfok:
+ ### 5.2 Állapotátmenet gráf:
  
- -- Komponensek alapján szétszedni az állapotátmeneti gráfokat -- 
+ #### MOTOR:
+ ![motor](motor.jpeg)
+ #### LED:
+ ![motor](led.jpeg)
