@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Line Follower Car</title>
+        <link href="index.css" rel="stylesheet">
+        <script type="application/javascript" src="powerBtn.js"></script>
+    </head>
+    <body>
+        <div class="card">
+          <h3 class="card-header">Settings</h3>
+            <img src="robocar.jpg" alt="LineFollowingCar" classstyle="width:90%">
+              
+            <button class="button-off" role="button" type="button" id="onBtn" onclick=powerOn()>
+              <span class="button-off-shadow"></span>
+              <span class="button-off-edge"></span>
+              <span class="button-off-front text">ON</span>
+            </button>
+
+            <button class="button-on" role="button" id="offBtn" onclick=powerOff()>
+              <span class="button-on-shadow"></span>
+              <span class="button-on-edge"></span>
+              <span class="button-on-front text">OFF</span>
+            </button>  
+          </div>
+    </body>
+</html>

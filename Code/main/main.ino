@@ -62,35 +62,51 @@ void setup() {
 }
 
 void loop() {
-  if(analogRead(A1) < 500){
-    digitalWrite(in1, HIGH);
-    driveL = true;
-  } else {
-     digitalWrite(in1, LOW);
-     driveL = false;
-  }
+if (Serial.available()) {
+    if (Serial.available()) {
+    char character = Serial.read();
+    
+    // Perform action based on the received character
+	if (character == 'S') {
+      if(analogRead(A1) < 500){
+    	digitalWrite(in1, HIGH);
+    	driveL = true;
+  	} else {
+    	digitalWrite(in1, LOW);
+    	driveL = false;
+  	}
 
-  if(analogRead(A0) < 500){
-    digitalWrite(in3, HIGH);
-    driveR = true;
-  } else {
-    digitalWrite(in3, LOW);
-    driveR = false;
-  }
+  	if(analogRead(A0) < 500){
+    	digitalWrite(in3, HIGH);
+    	driveR = true;
+  	} else {
+    	digitalWrite(in3, LOW);
+    	driveR = false;
+	}
 
-  if(driveL == true && driveR == true){
-    setALOW();
-    setBLOW();
-  } else if (driveL == true && driveR == false){
-    setARed();
-    setBLOW();
-  } else if (driveL == false && driveR == true){
-    setBRed();
-    setALOW();
-  } else if (driveL == false && driveR == false ){
-    setABlue();
-    setBBlue();
+	if(driveL == true && driveR == true){
+		setALOW();
+		setBLOW();
+	} else if (driveL == true && driveR == false){
+		setARed();
+		setBLOW();
+	} else if (driveL == false && driveR == true){
+		setBRed();
+		setALOW();
+	} else if (driveL == false && driveR == false ){
+		setABlue();
+		setBBlue();
+	}
+    } else if (character == 'F') {
+		setALOW();
+    	setBLOW();
+		driveL = false;
+		driveR = false;
+    }
   }
+}
+
+  
 }
 
 void setALOW(){
