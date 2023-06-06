@@ -1,21 +1,11 @@
-const powerOn = () => {
+const sendValue = (value) =>  {
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        console.log(this.responseText);
-      }
-    };
-    xhttp.open("GET", "/powerON?character=" + 'S', true);
+    xhttp.open("GET", "/setAnalogValue?value=" + value, true);
     xhttp.send();
 }
 
-const powerOff = () => {
+function sendValueB(value) {
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        console.log(this.responseText);
-      }
-    };
-    xhttp.open("GET", "/powerOFF?character=" + 'F', true);
+    xhttp.open("GET", "/setAnalogValue?value=" + value, true);
     xhttp.send();
 }

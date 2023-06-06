@@ -12,17 +12,17 @@
           <h3 class="card-header">Settings</h3>
             <img src="robocar.jpg" alt="LineFollowingCar" classstyle="width:90%">
               
-            <button class="button-off" role="button" type="button" id="onBtn" onclick=powerOn()>
+            <a class="button-off" type="button" id="onBtn" href="/setAnalogValue?value=100">
               <span class="button-off-shadow"></span>
               <span class="button-off-edge"></span>
               <span class="button-off-front text">ON</span>
-            </button>
+            </a>
 
-            <button class="button-on" role="button" id="offBtn" onclick=powerOff()>
+            <a class="button-on" id="offBtn" href="/setAnalogValue?value=0">
               <span class="button-on-shadow"></span>
               <span class="button-on-edge"></span>
               <span class="button-on-front text">OFF</span>
-            </button>  
+            </a>  
           </div>
     </body>
 </html>

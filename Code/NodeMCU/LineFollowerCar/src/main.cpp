@@ -7,12 +7,15 @@
 const char* ssid     = "LineFollowingCar";
 const char* password = "";
 AsyncWebServer server(80);
-
-// put function declarations here:
-int myFunction(int, int);
+const int pwmPin = 5; 
+const int pwmChannel = 0; // PWM channel number
 
 void setup() {
-  // put your setup code here, to run once:
+  pinMode(pwmPin, OUTPUT);
+  ledcSetup(pwmChannel, 5000, 8); // Set PWM frequency to 5 kHz and resolution to 8 bits
+  ledcAttachPin(pwmPin, pwmChannel); // Attach PWM channel to the pin
+  
+  Serial1.begin(9600);
   if (!SPIFFS.begin(true)) {
     Serial.println("An Error has occurred while mounting SPIFFS");
     return;
@@ -37,24 +40,16 @@ void setup() {
     request->send(SPIFFS, "/robocar.jpg", "image/jpg");
   });
 
-  server.on("/powerON", HTTP_GET, [](AsyncWebServerRequest * request) {
-    if(request->hasParam("character")){
-      String character = request->getParam("character")->value();
-      Serial.print(character);
-      request->send(200, "text/plain", "Character sent to Arduino.");
+  
+  server.on("/setAnalogValue", HTTP_GET, [](AsyncWebServerRequest *request) {
+    if (request->hasParam("value")) {
+      int analogValue = request->getParam("value")->value().toInt();
+       analogWrite(pwmPin, analogValue);
+      // ledcWrite(pwmChannel, analogValue);
+      // request->send(200, "text/html", "Analog value set");
+      request->send(SPIFFS, "/index.html", String());
     } else {
-      request->send(400, "text/plain", "Missing character parameter.");
-    }
-    
-  });
-
-  server.on("/powerOFF", HTTP_GET, [](AsyncWebServerRequest * request) {
-     if(request->hasParam("character")){
-      String character = request->getParam("character")->value();
-      Serial.print(character);
-      request->send(200, "text/plain", "Character sent to Arduino.");
-    } else {
-      request->send(400, "text/plain", "Missing character parameter.");
+      request->send(400, "text/html", "Invalid request");
     }
   });
 
@@ -67,6 +62,3 @@ void loop() {
 }
 
 // put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
