@@ -35,6 +35,8 @@ A mikrokontroller pedig egy NodeMCU és egy Arduino Uno.
 
  
 ### 4.2: CAD tervrajz:
+![aaaa](https://github.com/pylnpt/Robotics_project/assets/114164620/e6d999ef-e3bf-48e1-87e1-37681bb7b4ef)
+
 
 
 ## 5. Forgatókönyvek (állapotátmenet gráf)
@@ -59,7 +61,7 @@ A mikrokontroller pedig egy NodeMCU és egy Arduino Uno.
   - MFE: mindkettő fehéret érzékel
 
 - A LED állapota alapján:
-  - BLK: bal led kék
+  - BLK: bal led kék!
   - JLK: Jobb led kék
   - MLK : mindkettő led kék
   - BLP: bal led piros
