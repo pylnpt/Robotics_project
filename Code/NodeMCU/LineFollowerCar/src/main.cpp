@@ -8,12 +8,12 @@ const char* ssid     = "LineFollowingCar";
 const char* password = "";
 AsyncWebServer server(80);
 const int pwmPin = 5; 
-const int pwmChannel = 0; // PWM channel number
+// const int pwmChannel = 0; // PWM channel number
 
 void setup() {
   pinMode(pwmPin, OUTPUT);
-  ledcSetup(pwmChannel, 5000, 8); // Set PWM frequency to 5 kHz and resolution to 8 bits
-  ledcAttachPin(pwmPin, pwmChannel); // Attach PWM channel to the pin
+  // ledcSetup(pwmChannel, 5000, 8); // Set PWM frequency to 5 kHz and resolution to 8 bits
+  // ledcAttachPin(pwmPin, pwmChannel); // Attach PWM channel to the pin
   
   Serial1.begin(9600);
   if (!SPIFFS.begin(true)) {

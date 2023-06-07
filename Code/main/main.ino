@@ -47,8 +47,8 @@ void setup() {
   driveL = false;
 
   //Set motor speed
-  analogWrite(enA, 200);
-  analogWrite(enB, 200);
+  analogWrite(enA, 160);
+  analogWrite(enB, 160);
 
   // Turn off motors - Initial state
   digitalWrite(in1, LOW);
@@ -64,32 +64,34 @@ void setup() {
 
 void loop() {
   int analogValueFromMCU = analogRead(analogPin);
+  Serial.println(analogValueFromMCU);
   
-  if(analogValueFromMCU >= 50) {
+  if(analogValueFromMCU > 600) {
     enableFlag = true;
     // Serial.println(analogValueFromMCU);
-    // Serial.println(enableFlag);
+    Serial.println(enableFlag);
     Serial.println("ON");
   }
-  if(analogValueFromMCU < 50) {
+  else {
     enableFlag = false;
-    // Serial.println(enableFlag);
+    Serial.println(enableFlag);
     Serial.println("OFF");
   }
+
   if (enableFlag) {
     if (analogRead(A1) < 500) {
-      digitalWrite(in1, HIGH);
+      digitalWrite(in2, HIGH);
       driveL = true;
     } else {
-      digitalWrite(in1, LOW);
+      digitalWrite(in2, LOW);
       driveL = false;
     }
 
     if (analogRead(A0) < 500) {
-      digitalWrite(in3, HIGH);
+      digitalWrite(in4, HIGH);
       driveR = true;
     } else {
-      digitalWrite(in3, LOW);
+      digitalWrite(in4, LOW);
       driveR = false;
     }
 
@@ -97,31 +99,23 @@ void loop() {
       setALOW();
       setBLOW();
     } else if (driveL == true && driveR == false) {
-      setARed();
-      setBLOW();
-    } else if (driveL == false && driveR == true) {
       setBRed();
       setALOW();
+    } else if (driveL == false && driveR == true) {
+      setARed();
+      setBLOW();
     } else if (driveL == false && driveR == false) {
       setABlue();
       setBBlue();
     }
   } else {
-    digitalWrite(in1, LOW);
-    digitalWrite(in3, LOW);
+    digitalWrite(in2, LOW);
+    digitalWrite(in4, LOW);
     setALOW();
     setBLOW();
     driveL = false;
     driveR = false;
   }
-
-  // if (Serial.available()) {
-  //   char character = Serial.readString()[0];
-  //   // Serial.println(character);
-  //   // Perform action based on the received character
-  //   if (character == 'S') { enableFlag = true; }
-  //   else if (character == 'F') { enableFlag = false; }
-  // }
 }
 
 void setALOW() {
