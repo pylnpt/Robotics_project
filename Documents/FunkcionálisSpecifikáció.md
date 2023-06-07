@@ -32,11 +32,10 @@ A mikrokontroller pedig egy NodeMCU és egy Arduino Uno.
 
 
 ### 4.1: Sematikus rajz:
-
+![Schematics](Schematics.jpg)
  
 ### 4.2: CAD tervrajz:
-![aaaa](https://github.com/pylnpt/Robotics_project/assets/114164620/e6d999ef-e3bf-48e1-87e1-37681bb7b4ef)
-
+![CAD](https://github.com/pylnpt/Robotics_project/assets/114164620/e6d999ef-e3bf-48e1-87e1-37681bb7b4ef)
 
 
 ## 5. Forgatókönyvek (állapotátmenet gráf)
@@ -44,32 +43,11 @@ A mikrokontroller pedig egy NodeMCU és egy Arduino Uno.
 ### 5.1: jelölések
 
 #### 5.1.1 Állapotok jelölése:
-- A motor iránya alapján:
-  - JN: jobb motor áll
-  - BN: bal motor áll
-  - MN: mindkettő motor áll
-  - JF: jobb motor előre megy
-  - BF: bal motor előre megy
-  - MF: mindkettő motor előre megy
-
-- Az infravörös szenzor alapján:
-  - B: bal feketét érzékel
-  - J: jobb feketét érzékel
-  - M: mindkettő feketét érzékel
-  - BFE: bal fehéret érzékel
-  - JFE: jobb fehéret érzékel
-  - MFE: mindkettő fehéret érzékel
-
-- A LED állapota alapján:
-  - BLK: bal led kék!
-  - JLK: Jobb led kék
-  - MLK : mindkettő led kék
-  - BLP: bal led piros
-  - JLP: Jobb led piros
-  - MLP : mindkettő led piros
-  - BX: bal led nem ég
-  - JX: jobb led nem ég
-  - MX: eggyik led sem ég
+- Infra :
+  - j: jobb infra feketét érzékel 
+  - b: jobb infra fehéret érzékel
+  - m: mindkettő fehéret érzékel
+  - mf: eggyik infra sem érzékel semmit
 
 - Weblap gombjai alapján:
   - 0: kikapcsolt állapot
@@ -78,6 +56,6 @@ A mikrokontroller pedig egy NodeMCU és egy Arduino Uno.
  ### 5.2 Állapotátmenet gráf:
  
  #### MOTOR:
- ![motor](motor.jpeg)
+ ![motor](motor.jpg)
  #### LED:
- ![motor](led.jpeg)
+ ![motor](led.jpg)
